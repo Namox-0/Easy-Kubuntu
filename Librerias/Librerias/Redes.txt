@@ -1,0 +1,16 @@
+
+
+#Muestra las direcciones IP
+ip addr show	
+
+#IP asignada al host
+hostname -I
+	
+#Verifica conectividad
+ping <IP/URL>
+
+#Controla la red desde la terminal (NetworkManager)
+nmcli
+
+#Muestra tu IP pública (requiere conexión a internet)
+curl ifconfig.me	
