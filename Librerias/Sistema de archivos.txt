@@ -1,0 +1,166 @@
+###############################################
+#          MANEJO BÁSICO SISTEMA ARCHIVOS
+###############################################
+
+#Ver más opciones de comando
+ [COMANDO] --help
+
+#Manual online de como funciona el comando
+man [COMANDO]
+
+##########################################
+Manejo básico en el sistema de archivos
+##########################################
+
+#Mostrar en qué carpeta estás actualmente
+
+pwd
+
+#Cambiar de carpeta
+cd
+
+#Ir a la carpeta Documentos
+cd Documentos
+
+#Ir a la carpeta personal del usuario
+cd ruta
+
+#Subir un nivel en el sistema de carpetas
+cd ..
+
+#Listar el contenido de una carpeta
+ls
+
+#Ver el contenido de una ruta pero sin moverse a esa ruta
+
+ls /ruta
+
+#Listado detallado (permisos, tamaño, fechas)
+ls -l
+
+#Listado con archivos ocultos incluidos
+ls -a
+
+#Listado completo y organizado
+ls -la
+
+##########################################
+Crear y eliminar carpetas / archivos
+##########################################
+
+#Crear una carpeta llamada “prueba”
+
+mkdir prueba
+
+#Crear una carpeta y sus subcarpetas en un solo comando
+
+mkdir -p /users/Proyecto/Ingenieria/Planos/imagenes
+
+#Crear un archivo vacío
+touch
+
+#Crear un archivo llamado notas.txt
+touch notas.txt
+
+#Eliminar un archivo
+rm
+
+#Borrar el archivo notas.txt
+
+rm notas.txt
+
+#Eliminar varios archivos a la vez
+
+rm notas1.txt notas2.txt
+
+#Eliminar una carpeta y todo su contenido (¡cuidado!)
+
+rm -r carpeta
+
+##########################################
+
+Copiar y mover archivos o carpetas
+
+##########################################
+
+
+#Copiar un archivo a otra carpeta
+
+cp ruta/notas.txt ruta/
+
+#Copiar una carpeta entera con su contenido
+
+cp -r carpeta1 carpeta2
+
+#Mover o renombrar archivos/carpetas
+
+mv
+
+#Mover un archivo a otra carpeta
+
+mv notas.txt Descargas/
+
+#Cambiar el nombre de un archivo
+
+mv notas.txt notas_viejas.txt
+
+##########################################
+Ver y buscar información en archivos
+##########################################
+
+#Mostrar el contenido de un archivo de texto
+
+cat
+
+#Ver el contenido completo de notas.txt
+
+cat notas.txt
+
+#Mostrar poco a poco (útil para archivos largos)
+
+less
+
+#Abrir archivo largo en modo lectura por páginas
+
+less notas.txt
+
+#Buscar una palabra dentro de un archivo
+
+grep
+
+#Buscar la palabra “Linux” dentro de notas.txt
+
+grep "Linux" notas.txt
+
+##########################################
+Información sobre archivos y carpetas
+##########################################
+
+#Ver el tipo de archivo
+
+file
+
+#Saber qué tipo de archivo es notas.txt
+
+file notas.txt
+
+#Ver el tamaño de un archivo o carpeta
+
+du
+
+#Tamaño de un archivo específico
+
+du -h notas.txt
+
+#Tamaño total de una carpeta
+
+du -sh carpeta/
+
+#Ver espacio libre en discos
+
+df
+
+#Mostrar en formato legible (GB, MB)
+
+df -h
+
