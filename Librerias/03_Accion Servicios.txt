@@ -1,0 +1,127 @@
+########################################
+#Arrancar, Parar, Reiniciar un servicio#
+########################################
+
+sudo systemctl "accion" servicio
+              |
+              |
+sudo systemctl status apache2
+              |
+              | 
+sudo systemctl stop apache2
+              |
+              |
+sudo systemctl start apache2
+              |
+              |
+sudo systemctl restart apache2
+
+#hay servicios que es necesario habilitarlos para que los cambios cundan efectos
+sudo systemctl enable ssh
+
+######################################
+#         Gestor de archivos         #
+######################################    
+
+#Visualizar administrador de tareas en la terminal:
+top
+htop #si esta instalado
+
+#Imagen estatica:
+
+ps aux
+
+#Buscar un proceso por nombre:
+
+ps aux | grep nombre_usuario   
+
+pgrep nombre_proceso
+
+#Iniciar un proceso:
+
+nombre_proceso &   #Con almohadilla lo abre en segundo plano
+
+#Matar un proceso por PID:
+
+kill PID_proceso
+
+kill -9 PID_nombre  #Forzando cierre
+
+#Matar proceso por nombre
+
+pkill nombre_proceso
+
+#Pausar y Reanudar un proceso:
+
+kill -STOP PID 
+kill -CONT PID
+
+#Ver el Árbol de procesos:
+
+pstree
+
+####################################
+#      Programador de tareas       #
+####################################
+
+#Ver tareas programadas   
+
+crontab -1
+
+#Abre editor de tareas
+
+crontab -e
+
+#Borra tareas programadas de un usuario
+
+crontab -r
+
+#Editar el Cron de otro usuario
+
+sudo crontab -u usuario -e
+
+#FORMATO DE CRON (al abrir crontab -e)
+
+m h dom mon dow command
+
+m - minuto
+h - hora
+dom - día del mes (1 al 31)
+mon - mes (1 al 12)
+dow - día de la semana
+
+#Ejemplo:
+#Ejecutar cada minuto:
+
+* * * * * /ruta/comando
+
+#Ejecutar cada hora:
+
+0 * * * * /ruta/comando
+
+#Ejecutar cada día:
+
+0 2 * * * /ruta/comando
+
+#Ejecutar cada semana:
+
+0 3 * * 1 /ruta/comando
+
+#Ejecutar cada mes:
+
+0 4 1 * * /ruta/comando
+
+#Ejecutar cada X minutos:
+
+*/5 * * * * /ruta/comando
+
+#Ejecutar en varias horas:
+
+0 9,18 * * * /ruta/comando
+
+#Ejecutar en rango de horas:
+
+0 9-17 * * * /ruta/comando
+
+
+

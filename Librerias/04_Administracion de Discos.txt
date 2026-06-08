@@ -1,0 +1,143 @@
+# ================================
+# ADMINISTRACIÓN DE DISCOS
+# ================================
+
+#describe listar discos y particiones (vista general)
+lsblk
+
+#describe mostrar info detallada de discos (incluye tamaños, tipo, UUID)
+lsblk -f
+
+#describe ver tabla de particiones de todos los discos
+sudo fdisk -l
+
+#describe mostrar uso de espacio en discos montados (formato legible)
+df -h
+
+#describe mostrar uso de inodos
+df -i
+
+#describe analizar uso de espacio en carpetas
+du -sh *
+
+#describe ver uso detallado de una ruta específica
+du -h /ruta | sort -h
+
+# ================================
+# PARTICIONES
+# ================================
+
+#describe crear/editar particiones en un disco
+sudo fdisk /dev/sdX
+
+#describe alternativa moderna a fdisk (GPT recomendado)
+sudo parted /dev/sdX
+
+#describe listar particiones con parted
+sudo parted -l
+
+# ================================
+# FORMATEO
+# ================================
+
+#describe formatear partición a ext4
+sudo mkfs.ext4 /dev/sdX1
+
+#describe formatear a FAT32
+sudo mkfs.vfat /dev/sdX1
+
+#describe formatear a NTFS
+sudo mkfs.ntfs /dev/sdX1
+
+#describe mostrar info del sistema de archivos
+sudo blkid
+
+# ================================
+# MONTAJE
+# ================================
+
+#describe montar una partición manualmente
+sudo mount /dev/sdX1 /mnt
+
+#describe desmontar una partición
+sudo umount /dev/sdX1
+
+#describe ver dispositivos montados
+mount | column -t
+
+#describe montar automáticamente según fstab
+sudo mount -a
+
+# ================================
+# IDENTIFICACIÓN DE DISPOSITIVOS
+# ================================
+
+#describe listar dispositivos de bloque
+ls /dev/sd*
+
+#describe info de hardware de discos
+sudo lshw -class disk
+
+#describe ver mensajes del kernel sobre discos
+dmesg | grep sd
+
+#describe identificar discos conectados por USB
+lsusb
+
+# ================================
+# GESTIÓN AVANZADA
+# ================================
+
+#describe comprobar errores en sistema de archivos
+sudo fsck /dev/sdX1
+
+#describe forzar chequeo en próximo arranque
+sudo touch /forcefsck
+
+#describe ver UUID de discos
+ls -l /dev/disk/by-uuid/
+
+#describe medir velocidad de lectura
+sudo hdparm -Tt /dev/sdX
+
+#describe cambiar etiqueta de partición ext
+sudo e2label /dev/sdX1 NUEVO_NOMBRE
+
+# ================================
+# PERMISOS Y PROPIEDAD
+# ================================
+
+#describe cambiar propietario de punto de montaje
+sudo chown usuario:usuario /mnt
+
+#describe cambiar permisos
+chmod 755 /mnt
+
+# ================================
+# LVM (Logical Volume Manager)
+# ================================
+
+#describe crear volumen físico
+sudo pvcreate /dev/sdX1
+
+#describe crear grupo de volúmenes
+sudo vgcreate mi_vg /dev/sdX1
+
+#describe crear volumen lógico
+sudo lvcreate -L 10G -n mi_lv mi_vg
+
+#describe listar volúmenes
+sudo lvdisplay
+
+#describe extender volumen lógico
+sudo lvextend -L +5G /dev/mi_vg/mi_lv
+
+# ================================
+# EXTRA
+# ================================
+
+#describe sincronizar escritura en disco
+sync
+
+#describe expulsar dispositivo (USB/CD)
+eject /dev/sdX

@@ -1,0 +1,60 @@
+##############################
+#    Seguridad y Redes
+##############################
+
+# Explicación comando
+# ufw status -> muestra estado del firewall.
+Comando
+sudo ufw status
+
+Ejemplos de Comando con opciones habituales.
+sudo ufw status
+sudo ufw status verbose
+
+
+# Explicación comando
+# ufw enable -> activa firewall.
+Comando
+sudo ufw enable
+
+Ejemplos de Comando con opciones habituales.
+sudo ufw enable
+
+
+# Explicación comando
+# ufw disable -> desactiva firewall.
+Comando
+sudo ufw disable
+
+Ejemplos de Comando con opciones habituales.
+sudo ufw disable
+
+
+# Explicación comando
+# ufw allow -> permite puertos.
+Comando
+sudo ufw allow
+
+Ejemplos de Comando con opciones habituales.
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 53/udp
+
+
+# Explicación comando
+# ufw deny -> bloquea puertos.
+Comando
+sudo ufw deny
+
+Ejemplos de Comando con opciones habituales.
+sudo ufw deny 21/tcp
+sudo ufw deny 23/tcp
+
+
+# Explicación comando
+# netstat -> muestra conexiones de red.
+Comando
+netstat
+
+Ejemplos de Comando con opciones habituales.
+netstat -tulnp

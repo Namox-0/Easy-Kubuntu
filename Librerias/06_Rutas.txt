@@ -1,0 +1,89 @@
+Número de respostas: 0
+Administración sistema de Archivos
+Archivo	Descripción
+/etc/fstab	Define los sistemas de archivos que se montan automáticamente al iniciar. Fundamental para scripts de validación.
+/etc/mtab	Lista de sistemas montados actualmente (más moderno: usar mount o /proc/mounts).
+/proc/mounts	Sistemas montados (vista dinámica del kernel).
+/etc/crypttab	Configuración de volúmenes cifrados (LUKS).
+/etc/default/grub	Configuración del cargador de arranque GRUB.
+/boot/grub/grub.cfg	Configuración generada del GRUB. No se edita directamente.
+Archivo	Descripción
+/proc/filesystems	Sistemas de archivos soportados por el kernel.
+/proc/partitions	Particiones detectadas.
+/proc/diskstats	Estadísticas de discos.
+/var/log/syslog	Registro general del sistema.
+/var/log/kern.log	Logs del kernel.
+2. Usuarios y PErmisos
+
+Archivo	Descripción
+/etc/passwd	Lista de usuarios del sistema.
+/etc/shadow	Contraseñas cifradas y políticas (requiere root).
+/etc/group	Grupos del sistema.
+/etc/gshadow	Información segura de grupos.
+/etc/login.defs	Configuración global de políticas de login.
+/etc/default/useradd	Valores por defecto al crear usuarios.
+/etc/sudoers	Permisos de sudo (usar visudo).
+/etc/sudoers.d/	
+Configuraciones adicionales de sudo.
+
+Archivo	Descripción
+/etc/security/limits.conf	Límites de recursos por usuario.
+/etc/pam.d/	Configuración de autenticación PAM.
+/var/log/auth.log	Registro de autenticaciones.
+3. Control Hard y dispositivos
+
+Archivo	Descripción
+/proc/cpuinfo	Información detallada del CPU.
+/proc/meminfo	Estado de memoria RAM.
+/proc/version	Versión del kernel.
+/proc/uptime	Tiempo activo del sistema.
+/proc/loadavg	Carga promedio del sistema.
+/proc/modules	Módulos cargados en el kernel.
+/sys/class/net/	Interfaces de red detectadas.
+/proc/ioports	Puertos de entrada/salida.
+/proc/interrupts	Interrupciones del sistema.
+Archivo	Descripción
+/etc/modules	Módulos a cargar en el arranque.
+/etc/modprobe.conf o /etc/modprobe.d/	Configuración de módulos.
+/etc/default/apport	Reportes de fallos.
+4. Configuración Red
+
+Archivo	Descripción
+/etc/hostname	Nombre del equipo.
+/etc/hosts	Resolución local de nombres.
+/etc/resolv.conf	Servidores DNS.
+/etc/netplan/*.yaml	Configuración moderna de red en Ubuntu/Kubuntu.
+/etc/network/interfaces	Configuración antigua de red.
+/proc/net/dev	Estadísticas de interfaces.
+/proc/net/tcp	Conexiones TCP activas.
+Servidor APACHE
+
+Archivo	Descripción
+/etc/apache2/apache2.conf	Configuración principal de Apache.
+/etc/apache2/ports.conf	Puertos que escucha Apache.
+/etc/apache2/envvars	Variables de entorno de Apache.
+/etc/apache2/sites-available/000-default.conf	VirtualHost por defecto.
+/etc/apache2/sites-enabled/	Sitios activos.
+/etc/apache2/mods-available/	Módulos disponibles.
+/etc/apache2/mods-enabled/	Módulos activos.
+/var/log/apache2/access.log	Registro de accesos.
+/var/log/apache2/error.log	Registro de errores.
+Archivo	Descripción
+/etc/php/*/apache2/php.ini	Configuración PHP para Apache.
+/etc/php/*/cli/php.ini	Configuración PHP en línea de comandos.
+Archivo	Descripción
+/etc/mysql/my.cnf	Configuración principal.
+/etc/mysql/mysql.conf.d/mysqld.cnf	Configuración del servidor.
+/var/log/mysql/error.log	Registro de errores.
+5. Seguridad
+
+Archivo	Descripción
+/etc/ufw/ufw.conf	Configuración UFW.
+/etc/ufw/user.rules	Reglas activas de firewall.
+Archivo	Descripción
+/etc/ssh/sshd_config	Configuración del servidor SSH.
+/etc/fail2ban/jail.conf	Configuración Fail2ban (si instalado).
+/etc/crontab	Tareas programadas del sistema.
+/var/log/fail2ban.log	Registro Fail2ban.
+/var/log/syslog	Eventos relevantes de seguridad.
+/var/log/auth.log	Intentos de login.

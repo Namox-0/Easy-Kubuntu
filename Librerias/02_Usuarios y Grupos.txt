@@ -1,0 +1,192 @@
+========================
+GESTIÓN DE USUARIOS
+========================
+
+Crear usuario:
+useradd nombre
+
+Crear usuario con home:
+useradd -m nombre
+
+Crear con bash y comentario:
+useradd -m -s /bin/bash -c "Nombre Completo" nombre
+
+Asignar contraseña:
+passwd nombre
+
+Bloquear usuario:
+passwd -l nombre
+
+Desbloquear usuario:
+passwd -u nombre
+
+Eliminar usuario:
+userdel nombre
+
+Eliminar usuario + carpeta personal:
+userdel -r nombre
+
+Modificar usuario:
+usermod opciones nombre
+
+Añadir a grupo secundario:
+usermod -aG grupo nombre
+
+Cambiar nombre de usuario:
+usermod -l nuevo_nombre viejo_nombre
+
+Ver info de usuario:
+id nombre
+
+Ver usuarios conectados:
+who
+w
+
+#Añade usuario con password y /home/usuario enlazando dos comandos en una línea:
+sudo useradd -m usuario && echo 'usuario:password' | sudo chpasswd
+
+#Borra usuario y toda su /home
+sudo userdel -r usuario
+
+=====================
+ GESTIÓN DE GRUPOS
+=====================
+
+Crear grupo:
+groupadd grupo
+
+Crear grupo con GID específico:
+groupadd -g 2000 grupo
+
+Eliminar grupo:
+groupdel grupo
+
+Cambiar nombre de grupo:
+groupmod -n nuevo viejo
+
+Ver grupos de un usuario:
+groups nombre
+
+
+=====================
+PERMISOS EN LINUX
+=====================
+
+Ver permisos:
+ls -l
+
+Formato:
+-rwxr-xr--
+
+Se divide en:
+usuario | grupo | otros
+
+Permisos:
+r = lectura (4)
+w = escritura (2)
+x = ejecución (1)
+
+
+=====================
+CHMOD (PERMISOS)
+=====================
+
+Modo simbólico:
+chmod u+x archivo
+chmod g-w archivo
+chmod o=r archivo
+chmod a+r archivo
+
+u = usuario
+g = grupo
+o = otros
+a = todos
+
+Modo numérico:
+chmod 755 archivo
+chmod 644 archivo
+chmod 777 archivo
+
+Equivalencias:
+7 = rwx
+6 = rw-
+5 = r-x
+4 = r--
+0 = ---
+
+
+=====================
+CHOWN Y CHGRP
+=====================
+
+Cambiar propietario:
+chown usuario archivo
+
+Cambiar propietario y grupo:
+chown usuario:grupo archivo
+
+Cambiar recursivamente:
+chown -R usuario:grupo carpeta/
+
+Cambiar grupo:
+chgrp grupo archivo
+
+
+=====================
+PERMISOS ESPECIALES
+=====================
+
+SUID:
+chmod u+s archivo
+chmod 4755 archivo
+
+SGID:
+chmod g+s archivo
+chmod 2755 archivo
+
+Sticky Bit:
+chmod +t carpeta
+chmod 1777 carpeta
+
+Ejemplo típico:
+chmod 1777 /tmp
+
+
+=====================
+ACL (PERMISOS AVANZADOS)
+=====================
+
+Ver ACL:
+getfacl archivo
+
+Añadir permiso ACL:
+setfacl -m u:usuario:rwx archivo
+
+Eliminar permiso ACL:
+setfacl -x u:usuario archivo
+
+
+=====================
+ARCHIVOS IMPORTANTES
+=====================
+
+Usuarios:
+/etc/passwd
+
+Contraseñas:
+/etc/shadow
+
+Grupos:
+/etc/group
+
+
+=====================
+COMANDOS CLAVE PARA EXAMEN
+=====================
+
+useradd -m usuario
+passwd usuario
+usermod -aG grupo usuario
+chmod 755 archivo
+chown usuario:grupo archivo
+userdel -r usuario
